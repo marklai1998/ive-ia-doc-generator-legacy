@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IVE IA Document Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="./javascript/FileSaver.js"></script>
+    <script type="text/javascript" src="./javascript/jszip.js"></script>
+    <script type="text/javascript" src="./javascript/jszip-utils.js"></script>
+    <script type="text/javascript" src="./javascript/docxtemplater-latest.js"></script>
+    <script type="text/javascript" src="./javascript/main.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>IVE IA Document Generator</h1>
+        <a class="credit">All credit goes to: Mark Lai IT114115/2B 2017-2018</a>
+    </div>
+    <div class="part">
+        <h4>Read existing JSON file</h4>
+        <div class="inner">
+            <input type="file" id="fileToLoad">
+            <button onclick="loadJSON()">Load JSON</button>
+        </div>
+    </div>
+    <form onsubmit="generateFile();return false;">
+        <div class="part">
+            <h4>Program Information</h4>
+            <div class="inner">
+                <label for="first_year">Year</label>
+                <input type="number" id="first_year" min="1000" max="9999" required>to
+                <input type="number" id="this_year" min="1000" max="9999" required><br>
+                <label for="st_no">Student ID</label>
+                <input type="number" id="st_no" min="100000000" max="999999999" value="000000000" required><br>
+                <label for="campus">Campus</label>
+                <input type="text" id="campus" value="Lee Wai Lee" required><br>
+                <label for="department">Department</label>
+                <input type="text" id="department" value="Information Technology" required><br>
+                <label for="program_title">Programme Title</label>
+                <input type="text" id="program_title" value="Cloud and Data Center Administrator" required><br>
+                <label for="program_no">Programme Code</label>
+                <input type="text" id="program_no" value="IT114115" minlength="8" maxlength="8" required><br>
+                <label for="class">Class</label>
+                <input type="text" id="class" value="2B" minlength="2" maxlength="2" required>
+            </div>
+        </div>
+        <div class="part">
+            <h4>Personal information</h4>
+            <div class="inner">
+                <label for="chinese_name">Name</label><a class="name_language">Chinese</a>
+                <input type="text" id="chinese_name" required>
+                <a class="name_language">English</a>
+                <input type="text" id="eng_name" required><br>
+                <label for="gender">Gender</label>
+                <input type="text" id="gender" style="display: none">
+                <input type="radio" name="gender" value="1" checked>Male
+                <input type="radio" name="gender" value="0">Female<br>
+                <label for="hkid_no">HKID Number</label>
+                <input type="text" id="hkid_no" minlength="8" maxlength="8" value="A0000000" required><br>
+                <label for="tel_no">Tel</label>
+                <input type="number" id="tel_no" min="10000000" max="99999999" required><br>
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <h5>
+                    Emergency Contact
+                </h5>
+                <label for="emergency_name">Name</label><a class="name_language">English</a>
+                <input type="text" id="emergency_name" required><br>
+                <label for="emergency_relationship">Relationship</label>
+                <input type="text" id="emergency_relationship" required><br>
+                <label for="emergency_place_of_work">Place of Work</label>
+                <input type="text" id="emergency_place_of_work" required><br>
+                <label for="emergency_home_tel">Home Tel</label>
+                <input type="number" id="emergency_home_tel" min="10000000" max="99999999" required><br>
+                <label for="emergency_mobile_tel">Mobile Tel</label>
+                <input type="number" id="emergency_mobile_tel" min="10000000" max="99999999" required><br>
+                <label for="emergency_work_tel">Work Tel</label>
+                <input type="number" id="emergency_work_tel" min="10000000" max="99999999" required><br>
+                <h5>Doctor Contact</h5>
+                <label for="emergency_doctor">Name</label><a class="name_language">English</a>
+                <input type="text" id="emergency_doctor"><a class="option">[optional]</a><br>
+                <label for="emergency_doctor_tel">Tel</label>
+                <input type="text" id="emergency_doctor_tel" min="10000000" max="99999999"><a
+                    class="option">[optional]</a><br>
+            </div>
+        </div>
+        <div class="part">
+            <h4>IA Supervisor</h4>
+            <div class="inner">
+                <label for="supervisor_name">Name</label><a class="name_language">English</a>
+                <input type="text" id="supervisor_name" required><br>
+                <label for="supervisor_post">Post</label>
+                <input type="text" id="supervisor_post" required><br>
+                <label for="supervisor_phone">Phone</label>
+                <input type="number" id="supervisor_phone" min="10000000" max="99999999" required><br>
+                <label for="supervisor_email">Email</label>
+                <input type="email" id="supervisor_email" required>
+            </div>
+        </div>
+        <div class="part">
+            <h4>IA Company</h4>
+            <div class="inner">
+                <h5>Company</h5>
+                <label for="organization_chinese_name">Name</label><a class="name_language">Chinese</a>
+                <input type="text" id="organization_chinese_name" required>
+                <a class="name_language">English</a>
+                <input type="text" id="organization_eng_name" required><br>
+                <label for="organization_address">Address</label>
+                <input type="text" id="organization_address" required><br>
+                <label for="organization_nature">Nature of Business</label>
+                <input type="text" id="organization_nature" required><br>
+                <h5>Mentor</h5>
+                <label for="organization_mentor">Mentor Name</label>
+                <input type="radio" name="mentor_gender" value="Dr." checked>Dr.
+                <input type="radio" name="mentor_gender" value="Mr.">Mr.
+                <input type="radio" name="mentor_gender" value="Miss.">Miss.
+                <input type="radio" name="mentor_gender" value="Ms.">Ms.
+                <a class="name_language">English</a>
+                <input type="text" id="organization_mentor" required><br>
+                <label for="organization_mentor_post">Mentor Position</label>
+                <input type="text" id="organization_mentor_post" required><br>
+                <label for="organization_mentor_tel">Phone</label>
+                <input type="number" id="organization_mentor_tel" min="10000000" max="99999999" required><br>
+                <label for="organization_mentor_fex">Fax</label>
+                <input type="number" id="organization_mentor_fex" min="10000000" max="99999999"><a class="option">[optional]</a><br>
+                <label for="organization_mentor_email">Email</label>
+                <input type="email" id="organization_mentor_email" required>
+                <h5>Job</h5>
+                <label for="job_title">Job Title</label>
+                <input type="text" id="job_title" required><br>
+                <label for="no_of_place">No. of Places</label>
+                <input type="number" id="no_of_place" value="1" required><br>
+                <label for="ia_department">Department</label>
+                <input type="text" id="ia_department" required><br>
+                <label for="job_description">Job description</label>
+                <input type="text" id="job_description" value="Internship" required><br>
+                <label for="skill_requir">Specialized Skills Required</label>
+                <input type="text" id="skill_requir" value="Programing" required><br>
+                <h5>Language Requirement</h5>
+                <label for="chi_req">Chinese</label>
+                <input type="text" id="chi_req" style="display: none">
+                <input type="radio" name="chi_req" value="0" checked>Fair
+                <input type="radio" name="chi_req" value="1">Fluent<br>
+                <label for="eng_req">English</label>
+                <input type="text" id="eng_req" style="display: none">
+                <input type="radio" name="eng_req" value="0" checked>Fair
+                <input type="radio" name="eng_req" value="1">Fluent<br>
+                <label for="put_req">Putonghua</label>
+                <input type="text" id="put_req" style="display: none">
+                <input type="radio" name="put_req" value="0" checked>Fair
+                <input type="radio" name="put_req" value="1">Fluent<br>
+                <label for="disc_preferred">Disciplines of Student Preferred</label>
+                <input type="text" id="disc_preferred" value="IT student" required><br>
+                <label for="other_req">Other Requirements</label>
+                <input type="text" id="other_req" value="N/A" required><br>
+                <h5>IA Details</h5>
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" required><br>
+                <label for="finish_date">End Date</label>
+                <input type="date" id="finish_date" required><br>
+                <label for="hr_per_day">Working Hour per Day</label>
+                <input type="number" id="hr_per_day" min="1" required><br>
+                <label for="day_per_week">Working Day per Week</label>
+                <input type="number" id="day_per_week" min="1" max="7" value="0" required><br>
+                <label for="working_hr_fr">Working Hour</label>
+                <input type="time" id="working_hr_fr" required>to
+                <input type="time" id="working_hr_to" required><br>
+                <label for="total_hour">Total working hour</label>
+                <input type="number" id="total_hour" min="90" value="90" required>Hour<br>
+                <label for="shift_duty">Shift Duty</label>
+                <input type="text" id="shift_duty" style="display: none">
+                <input type="radio" name="shift_duty" value="Yes">Yes
+                <input type="radio" name="shift_duty" value="No" checked>No<br>
+                <label for="allowance_per_mon">Allowance per month</label>
+                $<input type="number" id="allowance_per_mon" min="0" value="0" required><br>
+                <label for="bonus">Bonus price</label>
+                $<input type="number" id="bonus" min="0" value="0" required><br>
+                <label for="ia_property">IA Property</label>
+                <input type="text" id="ia_property" style="display: none">
+                <input type="radio" name="ia_property" value="regular" checked>on regular
+                <input type="radio" name="ia_property" value="request">on request
+                <input type="radio" name="ia_property" value="project basis">on project basis
+            </div>
+        </div>
+        <div class="part">
+            <h4>Site visit (老作)</h4>
+            <div class="inner">
+                <label for="time_len">Time length</label>
+                <input type="text" id="time_len" min="1" value="1" required>Hour<br>
+                <label for="work_done">Work summary</label>
+                <input type="text" id="work_done" required><br>
+                <label for="g1">老作一句讚自己</label>
+                <input type="text" id="g1" required><br>
+                <label for="g2">老作一句讚自己x2</label>
+                <input type="text" id="g2" required><br>
+                <label for="g3">老作一句讚自己x3</label>
+                <input type="text" id="g3" required><br>
+                <label for="b1">老作一句彈自己</label>
+                <input type="text" id="b1" required><br>
+                <label for="b2">老作一句彈自己x2</label>
+                <input type="text" id="b2" required><br>
+            </div>
+        </div>
+        <div class="part">
+            <h4>Things to do after generate</h4>
+            <div class="inner">
+                Sign at page 6, 7, 11, 13, 14, 16, 18
+            </div>
+        </div>
+
+        <input type="button" class="saveasjson" value="Save as JSON" onclick="saveAsJson()">
+        <input type="submit" class="gen" value="Generate IA Doc">
+    </form>
+</div>
+</body>
+</html>
