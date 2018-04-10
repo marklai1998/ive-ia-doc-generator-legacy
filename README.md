@@ -9,7 +9,7 @@ In case this is your first time using Github
 
 Press the green "Clone or download" on the top right hand corner
 
-Then press"download ZIP"
+Then press "Download ZIP"
 
 To download the generator
 ********************************************************************
