@@ -14,6 +14,8 @@ In case this is your first time to use Github
 How to use it
 
 double click run.bat
+
+LOL if chrome.exe not found (Install chrome and try again)
 ********************************************************************
 
 *This tool cannot sign the doc*
