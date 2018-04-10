@@ -5,11 +5,13 @@ Generate IVE IA Document
 All credits goes to Mark Lai IT114115/2B 2017-2018
 
 ********************************************************************
+In case this is your first time to use Github
+
 Press the green "Clone or download" on the top right hand corner
 
-To download the generator
+Then press"download ZIP"
 
-In case this is your first time to use Github
+To download the generator
 ********************************************************************
 How to use it
 
