@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98758aa1-606c-46c4-9841-261baf397df2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/run.bat" />
-      <change beforePath="$PROJECT_DIR$/template_document.docx" afterPath="$PROJECT_DIR$/template_document.docx" />
-    </list>
+    <list default="true" id="98758aa1-606c-46c4-9841-261baf397df2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +14,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="209" column="53" lean-forward="false" selection-start-line="209" selection-start-column="53" selection-end-line="209" selection-end-column="53" />
+            <state relative-caret-position="17">
+              <caret line="179" column="80" lean-forward="true" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -40,9 +37,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="126" />
-    <option name="y" value="443" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-398" />
+    <option name="y" value="488" />
     <option name="width" value="2576" />
     <option name="height" value="1056" />
   </component>
@@ -181,15 +178,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523355569538</updated>
-      <workItem from="1523355573687" duration="94000" />
+      <workItem from="1523355573687" duration="215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94000" />
+    <option name="totallyTimeSpent" value="215000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="126" y="443" width="2576" height="1056" extended-state="0" />
+    <frame x="-398" y="488" width="2576" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -233,8 +230,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="209" column="53" lean-forward="false" selection-start-line="209" selection-start-column="53" selection-end-line="209" selection-end-column="53" />
+        <state relative-caret-position="17">
+          <caret line="179" column="80" lean-forward="true" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="80" />
           <folding />
         </state>
       </provider>
