@@ -5,7 +5,7 @@ Generate IVE IA Document
 All credits goes to Mark Lai IT114115/2B 2017-2018
 
 ********************************************************************
-Press the "Clone or download on the top right hand corner"
+Press the green "Clone or download" on the top right hand corner
 
 To download the generator
 
