@@ -9,7 +9,7 @@ Press the "Clone or download on the top right hand corner"
 
 To download the generator
 
-In case thiis is your first time to use Github
+In case this is your first time to use Github
 ********************************************************************
 How to use it
 
