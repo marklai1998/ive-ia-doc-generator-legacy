@@ -15,7 +15,7 @@ To download the generator
 ********************************************************************
 How to use it
 
-double click run.bat
+double click run.bat with admin right
 
 LOL if chrome.exe not found (Install chrome and try again)
 ********************************************************************
