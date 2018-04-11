@@ -95,12 +95,11 @@ function getData() {
                 } else {
                     prepareJson["relationship"] = "daughter"
                 }
-                form_value = inputs[i].value;
+                form_value = document.querySelector('[name=gender]:checked').value;
                 break;
             default:
                 form_value = inputs[i].value;
         }
-
         prepareJson[inputs[i].getAttribute('id')] = form_value;
     }
     prepareJson['today'] = today_str;
@@ -133,30 +132,30 @@ function loadJSON() {
                         break;
                     case "chi_req":
                         if (prepareJson[key].length === 0) {
-                            document.getElementsByName(key)[0].checked = true;
-                        } else {
                             document.getElementsByName(key)[1].checked = true;
+                        } else {
+                            document.getElementsByName(key)[0].checked = true;
                         }
                         break;
                     case "eng_req":
                         if (prepareJson[key].length === 0) {
-                            document.getElementsByName(key)[0].checked = true;
-                        } else {
                             document.getElementsByName(key)[1].checked = true;
+                        } else {
+                            document.getElementsByName(key)[0].checked = true;
                         }
                         break;
                     case "put_req":
                         if (prepareJson[key].length === 0) {
-                            document.getElementsByName(key)[0].checked = true;
-                        } else {
                             document.getElementsByName(key)[1].checked = true;
+                        } else {
+                            document.getElementsByName(key)[0].checked = true;
                         }
                         break;
                     case "shift_duty":
-                        if (prepareJson[key] === "Yes") {
-                            document.getElementsByName(key)[0].checked = true;
-                        } else {
+                        if (prepareJson[key] === "No") {
                             document.getElementsByName(key)[1].checked = true;
+                        } else {
+                            document.getElementsByName(key)[0].checked = true;
                         }
                         break;
                     case "ia_property":
@@ -169,7 +168,7 @@ function loadJSON() {
                         }
                         break;
                     case "gender":
-                        if (prepareJson[key] === "male") {
+                        if (prepareJson[key] === "1") {
                             document.getElementsByName(key)[0].checked = true;
                         } else {
                             document.getElementsByName(key)[1].checked = true;
