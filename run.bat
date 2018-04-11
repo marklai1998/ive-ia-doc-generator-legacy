@@ -1,1 +1,1 @@
-start chrome.exe --allow-file-access-from-files --disable-web-security "%~dp0/index.html"
+start chrome.exe --allow-file-access-from-files --disable-web-security "%~dp0/web/index.html"
