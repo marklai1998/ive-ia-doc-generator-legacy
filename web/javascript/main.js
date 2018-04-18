@@ -9,7 +9,55 @@ const today_str = mm + '/' + dd + '/' + yyyy;
 window.onload = () => {
     document.getElementById('first_year').value = yyyy - 1;
     document.getElementById('this_year').value = yyyy;
+    let inputs = document.getElementsByTagName('input');
+    for (let i = 0; i < inputs.length; i++) {
+        let input = inputs[i];
+        input.addEventListener('focus', toggleClass);
+        input.addEventListener('blur', toggleClass);
+        input.addEventListener("change", check_input);
+    }
+    check_all_input()
 };
+
+function toggleClass() {
+    let obj = this.previousElementSibling;
+    while (obj.tagName !== "LABEL") {
+        obj = obj.previousElementSibling;
+    }
+    obj.classList.toggle('focus');
+    check_all_input()
+}
+
+function check_all_input() {
+    let all_inputs = document.getElementsByTagName('input');
+    for (let i = 0; i < all_inputs.length; i++) {
+        let input = all_inputs[i];
+        if(input.type ==="text"){
+            let inputs = input.parentElement.getElementsByTagName('input');
+            let error = input.parentElement.previousElementSibling.getElementsByClassName("count")[0];
+            error.innerHTML = 0;
+            for (let i = 0; i < inputs.length; i++) {
+                let input = inputs[i];
+                if (input.value === "" && input.style.display !== "none") {
+                    error.innerHTML++
+                }
+            }
+        }
+    }
+}
+
+function check_input() {
+    let inputs = this.parentElement.getElementsByTagName('input');
+    let error = this.parentElement.previousElementSibling.getElementsByClassName("count")[0];
+    error.innerHTML = 0;
+    for (let i = 0; i < inputs.length; i++) {
+        let input = inputs[i];
+        if (input.value === "" && input.style.display !== "none") {
+            error.innerHTML++
+        }
+    }
+}
+
 
 function saveAsJson() {
     getData();
@@ -183,4 +231,5 @@ function loadJSON() {
         }
     };
     fileReader.readAsText(fileToLoad, "UTF-8");
+    check_all_input();
 }

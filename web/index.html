@@ -12,28 +12,35 @@
     <script type="text/javascript" src="./javascript/jszip-utils.js"></script>
     <script type="text/javascript" src="./javascript/docxtemplater-latest.js"></script>
     <script type="text/javascript" src="./javascript/main.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+            integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
     <div class="header">
         <h1>IVE IA Document Generator</h1>
-        <a class="credit">All credit goes to: Mark Lai IT114115/2B 2017-2018</a>
+        <a class="credit">All credit goes to: Mark Lai and Cody Hon IT114115/2B 2017-2018</a>
     </div>
     <div class="part">
         <h4>Instruction</h4>
         <div class="inner">
-            1. [!important]  Make sure you are running this file through run.bat with admin right<br>
-            &nbsp;&nbsp;&nbsp;LOL if chrome.exe not found (Install chrome and try again)<br><br>
+            <div class="warning">[ ! Important ! ]</div>
+            If you are running at local machine, make sure you see the following message on chrome :
+            <div class="warning-box">You are using a unsupported command-line flag: --disable-web-security</div>
+            If not, Make sure you are running this file through run.bat with admin right<br>
+            &nbsp;&nbsp;or<br>
+            Try the online version: <a href="http://www.iveidg.ga">www.iveidg.ga</a><br><br><br>
 
-            2. Fill in this form<br>
-            &nbsp;&nbsp;&nbsp;or<br>
+            1. Fill in this form<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or<br>
             &nbsp;&nbsp;&nbsp;Load existing json from below (If you have)<br><br>
 
-            3. Press "Generate IA Doc"<br>
-            &nbsp;&nbsp;&nbsp;or<br>
+            2. Press "Generate IA Doc"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or<br>
             &nbsp;&nbsp;&nbsp;"save as JSON" (If you want to edit the info later)<br><br>
 
-            4. Sign the IA document at page 6, 7, 11, 13, 14, 16, 18
+            3. Sign the IA document at page 6, 7, 11, 13, 14, 16, 18
         </div>
     </div>
     <div class="part">
@@ -46,20 +53,22 @@
     <form onsubmit="generateFile();return false;">
         <div class="part">
             <h4>Program Information</h4>
+            <div class="error"><i class="fas fa-times"></i>&nbsp;&nbsp;<span class="count">0</span></div>
             <div class="inner">
                 <label for="first_year">Year</label>
                 <input type="number" id="first_year" min="1000" max="9999" required>to
                 <input type="number" id="this_year" min="1000" max="9999" required><br>
                 <label for="st_no">Student ID</label>
-                <input type="number" id="st_no" min="100000000" max="999999999" value="000000000" required><br>
+                <input type="number" id="st_no" min="100000000" max="999999999" required><br>
                 <label for="campus">Campus</label>
                 <input type="text" id="campus" value="Lee Wai Lee" required><br>
                 <label for="department">Department</label>
                 <input type="text" id="department" value="Information Technology" required><br>
-				<label for="department_head">Department Head</label>
+                <label for="department_head">Department Head</label>
                 <input type="text" id="department_head" value="Stanley Wong" required><br>
                 <label for="program_title">Programme Title</label>
-                <input type="text" id="program_title" value="Higher Diploma in Cloud and Data Center Administration" required><br>
+                <input type="text" id="program_title" value="Higher Diploma in Cloud and Data Center Administration"
+                       required><br>
                 <label for="program_no">Programme Code</label>
                 <input type="text" id="program_no" value="IT114115" minlength="8" maxlength="8" required><br>
                 <label for="class">Class</label>
@@ -68,6 +77,7 @@
         </div>
         <div class="part">
             <h4>Personal information</h4>
+            <div class="error"><i class="fas fa-times"></i>&nbsp;&nbsp;<span class="count">0</span></div>
             <div class="inner">
                 <label for="chinese_name">Name</label><a class="name_language">Chinese</a>
                 <input type="text" id="chinese_name" required>
@@ -78,7 +88,8 @@
                 <input type="radio" name="gender" value="1" checked>Male
                 <input type="radio" name="gender" value="0">Female<br>
                 <label for="hkid_no">HKID Number</label>
-                <input type="text" id="hkid_no" minlength="8" maxlength="8" value="A0000000" required><a class="option">Format: A1234567</a><br>
+                <input type="text" id="hkid_no" minlength="8" maxlength="8" required><a class="option">Format:
+                A1234567</a><br>
                 <label for="tel_no">Tel</label>
                 <input type="number" id="tel_no" min="10000000" max="99999999" required><br>
                 <label for="email">Email</label>
@@ -108,6 +119,7 @@
         </div>
         <div class="part">
             <h4>IA Supervisor</h4>
+            <div class="error"><i class="fas fa-times"></i>&nbsp;&nbsp;<span class="count">0</span></div>
             <div class="inner">
                 <label for="supervisor_name">Name</label><a class="name_language">English</a>
                 <input type="text" id="supervisor_name" required><br>
@@ -121,6 +133,7 @@
         </div>
         <div class="part">
             <h4>IA Company</h4>
+            <div class="error"><i class="fas fa-times"></i>&nbsp;&nbsp;<span class="count">0</span></div>
             <div class="inner">
                 <h5>Company</h5>
                 <label for="organization_chinese_name">Name</label><a class="name_language">Chinese</a>
@@ -195,7 +208,7 @@
                 <input type="radio" name="shift_duty" value="No" checked>No<br>
                 <label for="allowance_per_mon">Allowance per month</label>
                 $<input type="number" id="allowance_per_mon" min="0" value="0" required><br>
-				<label for="overtime_allowance">Overtime allowance</label>
+                <label for="overtime_allowance">Overtime allowance</label>
                 $<input type="number" id="overtime_allowance" min="0" value="0"><a class="option">[optional]</a><br>
                 <label for="bonus">Bonus price</label>
                 $<input type="number" id="bonus" min="0" value="0" required><br>
@@ -208,6 +221,7 @@
         </div>
         <div class="part">
             <h4>Site visit (老作)</h4>
+            <div class="error"><i class="fas fa-times"></i>&nbsp;&nbsp;<span class="count">0</span></div>
             <div class="inner">
                 <label for="time_len">Time length</label>
                 <input type="text" id="time_len" min="1" value="1" required>Hour<br>
